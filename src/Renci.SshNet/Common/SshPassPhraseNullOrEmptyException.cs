@@ -1,16 +1,12 @@
 ﻿using System;
-#if FEATURE_BINARY_SERIALIZATION
 using System.Runtime.Serialization;
-#endif // FEATURE_BINARY_SERIALIZATION
 
 namespace Renci.SshNet.Common
 {
     /// <summary>
     /// The exception that is thrown when pass phrase for key file is empty or null
     /// </summary>
-#if FEATURE_BINARY_SERIALIZATION
     [Serializable]
-#endif // FEATURE_BINARY_SERIALIZATION
     public class SshPassPhraseNullOrEmptyException : SshException
     {
         /// <summary>
@@ -41,7 +37,6 @@ namespace Renci.SshNet.Common
         {
         }
 
-#if FEATURE_BINARY_SERIALIZATION
         /// <summary>
         /// Initializes a new instance of the <see cref="SshPassPhraseNullOrEmptyException"/> class.
         /// </summary>
@@ -53,6 +48,5 @@ namespace Renci.SshNet.Common
             : base(info, context)
         {
         }
-#endif // FEATURE_BINARY_SERIALIZATION
     }
 }

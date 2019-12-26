@@ -22,11 +22,7 @@ namespace Renci.SshNet.Abstractions
             if (directoryInfo == null)
                 throw new ArgumentNullException("directoryInfo");
 
-#if FEATURE_DIRECTORYINFO_ENUMERATEFILES
-            return directoryInfo.EnumerateFiles(searchPattern);
-#else
             return directoryInfo.GetFiles(searchPattern);
-#endif
         }
     }
 }

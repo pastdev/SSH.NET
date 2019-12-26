@@ -362,16 +362,12 @@ namespace Renci.SshNet
             HmacAlgorithms = new Dictionary<string, HashInfo>
                 {
                     {"hmac-md5", new HashInfo(16*8, CryptoAbstraction.CreateHMACMD5)},
-                    {"hmac-md5-96", new HashInfo(16*8, key => CryptoAbstraction.CreateHMACMD5(key, 96))},
                     {"hmac-sha1", new HashInfo(20*8, CryptoAbstraction.CreateHMACSHA1)},
-                    {"hmac-sha1-96", new HashInfo(20*8, key => CryptoAbstraction.CreateHMACSHA1(key, 96))},
                     {"hmac-sha2-256", new HashInfo(32*8, CryptoAbstraction.CreateHMACSHA256)},
-                    {"hmac-sha2-256-96", new HashInfo(32*8, key => CryptoAbstraction.CreateHMACSHA256(key, 96))},
                     {"hmac-sha2-512", new HashInfo(64 * 8, CryptoAbstraction.CreateHMACSHA512)},
-                    {"hmac-sha2-512-96", new HashInfo(64 * 8,  key => CryptoAbstraction.CreateHMACSHA512(key, 96))},
                     //{"umac-64@openssh.com", typeof(HMacSha1)},
-                    {"hmac-ripemd160", new HashInfo(160, CryptoAbstraction.CreateHMACRIPEMD160)},
-                    {"hmac-ripemd160@openssh.com", new HashInfo(160, CryptoAbstraction.CreateHMACRIPEMD160)},
+                    //{"hmac-ripemd160", new HashInfo(160, CryptoAbstraction.CreateHMACRIPEMD160)},
+                    //{"hmac-ripemd160@openssh.com", new HashInfo(160, CryptoAbstraction.CreateHMACRIPEMD160)},
                     //{"none", typeof(...)},
                 };
 

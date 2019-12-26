@@ -212,7 +212,6 @@ namespace Renci.SshNet.Common
         /// Initializes a new instance of the <see cref="BigInteger"/> structure using an unsigned 32-bit integer value.
         /// </summary>
         /// <param name="value">An unsigned 32-bit integer value.</param>
-        [CLSCompliant(false)]
         public BigInteger(uint value)
         {
             if (value == 0)
@@ -267,7 +266,6 @@ namespace Renci.SshNet.Common
         /// Initializes a new instance of the <see cref="BigInteger"/> structure with an unsigned 64-bit integer value.
         /// </summary>
         /// <param name="value">An unsigned 64-bit integer.</param>
-        [CLSCompliant(false)]
         public BigInteger(ulong value)
         {
             if (value == 0)
@@ -388,7 +386,6 @@ namespace Renci.SshNet.Common
         /// </summary>
         /// <param name="value">An array of <see cref="byte"/> values in little-endian order.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is <c>null</c>.</exception>
-        [CLSCompliant(false)]
         public BigInteger(byte[] value)
         {
             if (value == null)
@@ -735,7 +732,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// An object that contains the value of the <paramref name="value"/> parameter.
         /// </returns>
-        [CLSCompliant(false)]
         public static explicit operator uint(BigInteger value)
         {
             if (value._data == null)
@@ -767,7 +763,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// An object that contains the value of the <paramref name="value"/> parameter.
         /// </returns>
-        [CLSCompliantAttribute(false)]
         public static explicit operator ushort(BigInteger value)
         {
             var val = (uint)value;
@@ -798,7 +793,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// An object that contains the value of the <paramref name="value"/> parameter.
         /// </returns>
-        [CLSCompliant(false)]
         public static explicit operator sbyte(BigInteger value)
         {
             var val = (int)value;
@@ -864,7 +858,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// An object that contains the value of the <paramref name="value"/> parameter.
         /// </returns>
-        [CLSCompliant(false)]
         public static explicit operator ulong(BigInteger value)
         {
             if (value._data == null)
@@ -974,7 +967,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// An object that contains the value of the <paramref name="value"/> parameter.
         /// </returns>
-        [CLSCompliant(false)]
         public static implicit operator BigInteger(uint value)
         {
             return new BigInteger(value);
@@ -999,7 +991,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// An object that contains the value of the <paramref name="value"/> parameter.
         /// </returns>
-        [CLSCompliantAttribute(false)]
         public static implicit operator BigInteger(ushort value)
         {
             return new BigInteger(value);
@@ -1024,7 +1015,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// An object that contains the value of the <paramref name="value"/> parameter.
         /// </returns>
-        [CLSCompliant(false)]
         public static implicit operator BigInteger(sbyte value)
         {
             return new BigInteger(value);
@@ -1049,7 +1039,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// An object that contains the value of the <paramref name="value"/> parameter.
         /// </returns>
-        [CLSCompliant(false)]
         public static implicit operator BigInteger(ulong value)
         {
             return new BigInteger(value);
@@ -1825,7 +1814,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// <c>true</c> if <paramref name="left"/> is less than <paramref name="right"/>; otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator <(BigInteger left, ulong right)
         {
             return left.CompareTo(right) < 0;
@@ -1839,7 +1827,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// <c>true</c> if <paramref name="left"/> is less than <paramref name="right"/>; otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator <(ulong left, BigInteger right)
         {
             return right.CompareTo(left) > 0;
@@ -1899,7 +1886,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if <paramref name="left"/> is less than or equal to <paramref name="right"/>;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator <=(BigInteger left, ulong right)
         {
             return left.CompareTo(right) <= 0;
@@ -1915,7 +1901,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if <paramref name="left"/> is less than or equal to <paramref name="right"/>;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator <=(ulong left, BigInteger right)
         {
             return right.CompareTo(left) >= 0;
@@ -1973,7 +1958,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if <paramref name="left"/> is greater than <paramref name="right"/>;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator >(BigInteger left, ulong right)
         {
             return left.CompareTo(right) > 0;
@@ -1988,7 +1972,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if <paramref name="left"/> is greater than <paramref name="right"/>;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator >(ulong left, BigInteger right)
         {
             return right.CompareTo(left) < 0;
@@ -2049,7 +2032,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if <paramref name="left"/> is greater than <paramref name="right"/>;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator >=(BigInteger left, ulong right)
         {
             return left.CompareTo(right) >= 0;
@@ -2065,7 +2047,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if <paramref name="left"/> is greater than <paramref name="right"/>;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator >=(ulong left, BigInteger right)
         {
             return right.CompareTo(left) <= 0;
@@ -2122,7 +2103,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if the <paramref name="left"/> and <paramref name="right"/> parameters have the same value;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator ==(BigInteger left, ulong right)
         {
             return left.CompareTo(right) == 0;
@@ -2137,7 +2117,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if the <paramref name="left"/> and <paramref name="right"/> parameters have the same value;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator ==(ulong left, BigInteger right)
         {
             return right.CompareTo(left) == 0;
@@ -2194,7 +2173,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if <paramref name="left"/> and <paramref name="right"/> are not equal;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator !=(BigInteger left, ulong right)
         {
             return left.CompareTo(right) != 0;
@@ -2209,7 +2187,6 @@ namespace Renci.SshNet.Common
         /// <c>true</c> if <paramref name="left"/> and <paramref name="right"/> are not equal;
         /// otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public static bool operator !=(ulong left, BigInteger right)
         {
             return right.CompareTo(left) != 0;
@@ -3439,7 +3416,6 @@ namespace Renci.SshNet.Common
         /// <returns>
         /// <c>true</c> if the current instance and the unsigned 64-bit integer have the same value; otherwise, <c>false</c>.
         /// </returns>
-        [CLSCompliant(false)]
         public bool Equals(ulong other)
         {
             return CompareTo(other) == 0;
@@ -3638,7 +3614,6 @@ namespace Renci.SshNet.Common
         ///     </item>
         /// </list>
         /// </returns>
-        [CLSCompliant(false)]
         public int CompareTo(ulong other)
         {
             if (_sign < 0)

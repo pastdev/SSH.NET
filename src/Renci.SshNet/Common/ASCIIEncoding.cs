@@ -1,6 +1,4 @@
-﻿#if !FEATURE_ENCODING_ASCII
-
-using System;
+﻿using System;
 using System.Text;
 
 namespace Renci.SshNet.Common
@@ -163,5 +161,3 @@ namespace Renci.SshNet.Common
         }
     }
 }
-
-#endif // !FEATURE_ENCODING_ASCII
