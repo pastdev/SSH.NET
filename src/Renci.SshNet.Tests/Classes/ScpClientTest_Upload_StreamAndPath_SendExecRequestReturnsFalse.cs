@@ -43,24 +43,45 @@ namespace Renci.SshNet.Tests.Classes
         {
             var sequence = new MockSequence();
 
-            _serviceFactoryMock.InSequence(sequence)
-                               .Setup(p => p.CreateRemotePathDoubleQuoteTransformation())
-                               .Returns(_remotePathTransformationMock.Object);
-            _serviceFactoryMock.InSequence(sequence)
-                               .Setup(p => p.CreateSession(_connectionInfo))
-                               .Returns(_sessionMock.Object);
-            _sessionMock.InSequence(sequence).Setup(p => p.Connect());
-            _serviceFactoryMock.InSequence(sequence).Setup(p => p.CreatePipeStream()).Returns(_pipeStreamMock.Object);
-            _sessionMock.InSequence(sequence).Setup(p => p.CreateChannelSession()).Returns(_channelSessionMock.Object);
-            _channelSessionMock.InSequence(sequence).Setup(p => p.Open());
-            _remotePathTransformationMock.InSequence(sequence)
-                                         .Setup(p => p.Transform(_path))
-                                         .Returns(_transformedPath);
-            _channelSessionMock.InSequence(sequence)
-                               .Setup(p => p.SendExecRequest(string.Format("scp -t {0}", _transformedPath)))
-                               .Returns(false);
-            _channelSessionMock.InSequence(sequence).Setup(p => p.Dispose());
-            _pipeStreamMock.As<IDisposable>().InSequence(sequence).Setup(p => p.Dispose());
+            _serviceFactoryMock
+                .InSequence(sequence)
+                .Setup(p => p.CreateRemotePathDoubleQuoteTransformation())
+                .Returns(_remotePathTransformationMock.Object);
+            _serviceFactoryMock
+                .InSequence(sequence)
+                .Setup(p => p.CreateSession(_connectionInfo))
+                .Returns(_sessionMock.Object);
+            _sessionMock
+                .InSequence(sequence)
+                .Setup(p => p.Connect());
+            _serviceFactoryMock
+                .InSequence(sequence)
+                .Setup(p => p.CreatePipeStream())
+                .Returns(_pipeStreamMock.Object);
+            _sessionMock
+                .InSequence(sequence)
+                .Setup(p => p.CreateChannelSession())
+                .Returns(_channelSessionMock.Object);
+            _channelSessionMock
+                .InSequence(sequence)
+                .Setup(p => p.Open());
+            _remotePathTransformationMock
+                .InSequence(sequence)
+                .Setup(p => p.Transform(_path))
+                .Returns(_transformedPath);
+            _channelSessionMock
+                .InSequence(sequence)
+                .Setup(p => p.SendExecRequest(string.Format("scp -t {0}", _transformedPath)))
+                .Returns(false);
+            _channelSessionMock
+                .InSequence(sequence)
+                .Setup(p => p.Dispose());
+            // not sure what changed or why, but the original dispose code (https://github.com/moq/moq4/issues/129#issuecomment-57915712):
+            //   _pipeStreamMock.As<IDisposable>().InSequence(sequence).Setup(p => p.Dispose());
+            // doesn't work, but Close does:
+            _pipeStreamMock
+                .InSequence(sequence)
+                .Setup(p => p.Close());
         }
 
         protected override void Arrange()
@@ -106,9 +127,9 @@ namespace Renci.SshNet.Tests.Classes
         }
 
         [TestMethod]
-        public void DisposeOnPipeStreamShouldBeInvokedOnce()
+        public void CloseOnPipeStreamShouldBeInvokedOnce()
         {
-            _pipeStreamMock.As<IDisposable>().Verify(p => p.Dispose(), Times.Once);
+            _pipeStreamMock.Verify(p => p.Close(), Times.Once);
         }
 
         [TestMethod]

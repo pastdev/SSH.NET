@@ -50,7 +50,7 @@ namespace Renci.SshNet.Tests.Classes
             _channelSessionMock.InSequence(sequence)
                 .Setup(p => p.SendExecRequest(string.Format("scp -pf {0}", _transformedPath))).Returns(false);
             _channelSessionMock.InSequence(sequence).Setup(p => p.Dispose());
-            _pipeStreamMock.As<IDisposable>().InSequence(sequence).Setup(p => p.Dispose());
+            _pipeStreamMock.InSequence(sequence).Setup(p => p.Close());
         }
 
         protected override void Arrange()
@@ -96,9 +96,9 @@ namespace Renci.SshNet.Tests.Classes
         }
 
         [TestMethod]
-        public void DisposeOnPipeStreamShouldBeInvokedOnce()
+        public void CloseOnPipeStreamShouldBeInvokedOnce()
         {
-            _pipeStreamMock.As<IDisposable>().Verify(p => p.Dispose(), Times.Once);
+            _pipeStreamMock.Verify(p => p.Close(), Times.Once);
         }
 
         [TestMethod]

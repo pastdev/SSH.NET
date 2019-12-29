@@ -4,6 +4,10 @@ src/**/obj/**
 test/**/bin/**
 test/**/obj/**
 
+# vscode
+launch.json
+tasks.json
+
 # MSTest test Results
 src/TestResults/
 

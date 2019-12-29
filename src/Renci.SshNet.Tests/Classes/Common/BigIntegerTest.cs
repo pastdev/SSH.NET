@@ -16,11 +16,7 @@ using System.Globalization;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Renci.SshNet.Common;
-#if FEATURE_NUMERICS_BIGINTEGER
-using BigInteger = System.Numerics.BigInteger;
-#else
 using BigInteger = Renci.SshNet.Common.BigInteger;
-#endif
 
 
 namespace Renci.SshNet.Tests.Classes.Common

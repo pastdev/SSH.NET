@@ -14,6 +14,7 @@
       <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
+
 <!--
     <DefineConstants>TRACE;
 DEBUG;
@@ -49,4 +50,5 @@ FEATURE_MEMORYSTREAM_GETBUFFER;
 FEATURE_DIAGNOSTICS_TRACESOURCE;
 FEATURE_ENCODING_ASCII</DefineConstants>
 -->
+
 </Project>

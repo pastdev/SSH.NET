@@ -260,7 +260,7 @@ namespace Renci.SshNet.Tests.Classes
         [TestMethod]
         public void Connect_HostNameInvalid_ShouldThrowSocketExceptionWithErrorCodeHostNotFound()
         {
-            var connectionInfo = new ConnectionInfo("invalid.", 40, "user",
+            var connectionInfo = new ConnectionInfo("invalid.local", 40, "user",
                 new KeyboardInteractiveAuthenticationMethod("user"));
             var session = new Session(connectionInfo, _serviceFactoryMock.Object);
 
@@ -278,7 +278,7 @@ namespace Renci.SshNet.Tests.Classes
         [TestMethod]
         public void Connect_ProxyHostNameInvalid_ShouldThrowSocketExceptionWithErrorCodeHostNotFound()
         {
-            var connectionInfo = new ConnectionInfo("localhost", 40, "user", ProxyTypes.Http, "invalid.", 80,
+            var connectionInfo = new ConnectionInfo("localhost", 40, "user", ProxyTypes.Http, "invalid.local", 80,
                 "proxyUser", "proxyPwd", new KeyboardInteractiveAuthenticationMethod("user"));
             var session = new Session(connectionInfo, _serviceFactoryMock.Object);
 

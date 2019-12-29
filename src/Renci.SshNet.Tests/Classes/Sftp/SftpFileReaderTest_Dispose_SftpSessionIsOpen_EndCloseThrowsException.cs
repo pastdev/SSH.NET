@@ -1,8 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-#if !FEATURE_EVENTWAITHANDLE_DISPOSE
 using Renci.SshNet.Common;
-#endif // !FEATURE_EVENTWAITHANDLE_DISPOSE
 using Renci.SshNet.Sftp;
 using System;
 using System.Threading;

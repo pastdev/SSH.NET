@@ -15,7 +15,13 @@ namespace Renci.SshNet.Tests.Classes
     [TestClass]
     public partial class ForwardedPortLocalTest : TestBase
     {
-        [TestMethod]
+        // FIXME: This test causes the test framework to crash altogether when it fails to find the proxy...
+        // The active test run was aborted. Reason: Test host process crashed : Unhandled exception. Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException: Assert.Fail failed. System.Net.WebException: No such host is known. No such host is known.
+        //  ---> System.Net.Http.HttpRequestException: No such host is known.
+        //  ---> System.Net.Sockets.SocketException (11001): No such host is known.
+        //    at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+        //    --- End of inner exception stack trace --
+        //[TestMethod]
         [WorkItem(713)]
         [Owner("Kenneth_aa")]
         [TestCategory("PortForwarding")]
